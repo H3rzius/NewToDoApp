@@ -10,9 +10,6 @@ export class DataTableService {
     new Category('Schule'),
     new Category('Finanzen')
   ];
-  public todo_defaults: Todo[] = [new Todo(1, 'Garten essen', new Date('01.01.2020'), this.categories[0]),
-    new Todo(2, 'Rasen mehlen', new Date('01.01.2020'), this.categories[0]),
-    new Todo(3, 'Rasen mähen', new Date('01.01.2020'), this.categories[1])];
   public todos: Todo[] = [];
 
   public showExtraButtons = {key: "setting_showExtraButtons", description: "Lösch- und Klon-Button anzeigen", enabled: true};
@@ -22,6 +19,7 @@ export class DataTableService {
   public selected: Category | undefined;
   public searchText: string = "";
   public _messageBoxMessage: string | undefined;
+  public _messageBoxType: number | undefined;
 
   constructor() {
     //localStorage.setItem("todos", JSON.stringify(this.todo_defaults));
@@ -94,8 +92,21 @@ export class DataTableService {
     });
   }
 
+  public set messageBoxType(type: number) {
+    this._messageBoxType = type;
+    new Promise(resolve => setTimeout(resolve, 5000)).then(d => {
+      if (this._messageBoxType == type) {
+        this._messageBoxType = undefined;
+      }
+    });
+  }
+
   public get messageBoxMessage(): string | undefined {
     return this._messageBoxMessage;
+  }
+
+  public get messageBoxType(): number | undefined {
+    return this._messageBoxType;
   }
 
   public saveSetting(obj: {key: string, description: string, enabled: boolean}) {
@@ -104,11 +115,11 @@ export class DataTableService {
 
   public addCategory() {
     if (this.catName.length == 0) {
-      this.messageBoxMessage = "Der Name der Kategorie darf nicht leer sein";
+      this.messageBoxMessage = "Kategorie darf nicht leer sein";
       return;
     }
     if (this.categories.find(e => e.name == this.catName) !== undefined) {
-      this.messageBoxMessage = "Diese Kategorie existiert bereits";
+      this.messageBoxMessage = "Diese Kategorie gibt es bereits";
       return;
     }
     this.categories.push(new Category(this.catName));
@@ -128,13 +139,15 @@ export class DataTableService {
   public delete(todo: Todo) {
     this.todos = this.todos.filter(e => e != todo);
     this.save();
-    this.messageBoxMessage = "Todo gelöscht";
+    this.messageBoxMessage = "Todo wurde gelöscht";
+    this.messageBoxType = 0;
   }
 
   public add(todo: Todo) {
     this.todos.push(todo);
     this.save();
-    this.messageBoxMessage = "Todo hinzugefügt";
+    this.messageBoxMessage = "Todo wurde hinzugefügt";
+    this.messageBoxType = 0;
   }
 
   public save() {
@@ -144,7 +157,8 @@ export class DataTableService {
   public clone(todo: Todo) {
     let newTodo: Todo = new Todo(this.findNextId(), todo.name, todo.until, todo.category);
     this.add(newTodo);
-    this.messageBoxMessage = "Todo geklont"
+    this.messageBoxMessage = "Todo wurde dupliziert"
+    this.messageBoxType = 0;
   }
 
   public todoList() {

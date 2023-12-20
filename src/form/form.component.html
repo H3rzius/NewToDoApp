@@ -1,0 +1,44 @@
+<p class="h4">Neues Todo anlegen</p>
+<hr/>
+<div class="formComponent">
+  <table>
+    <thead>
+      <tr class="row">
+        <th scope="row"></th>
+        <th scope="row"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="col">
+        <th class="table-item text-end" scope="row">Name</th>
+        <td class="table-item">
+          <input class="form-control col" name="name" [(ngModel)]="this.name" style="width: 300px; background-color: transparent;" required>
+        </td>
+      </tr>
+      <tr class="col">
+        <th class="table-item text-end" scope="row">Frist</th>
+        <td class="table-item">
+          <input class="form-control col" name="until" [(ngModel)]="until" type="date" style="width: 300px; background-color: transparent" required/>
+        </td>
+      </tr>
+      <tr class="col">
+        <th class="table-item text-end" scope="row">Kategorie</th>
+        <td class="table-item">
+          <select class="form-select col" name="categories" style="width: 300px; background-color: transparent" [(ngModel)]="category" required>
+            <option *ngFor="let categories of dataTableService.categories" [ngValue]="categories">
+              {{categories.name}}
+            </option>
+          </select>
+        </td>
+      </tr>
+      <tr class="col">
+        <th class="table-item" scope="row"></th>
+        <td class="table-item">
+          <button class="btn btn-outline-success col" (click)="create()">
+            Hinzufügen
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

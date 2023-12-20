@@ -1,5 +1,5 @@
 <div>
-  <app-nav-bar></app-nav-bar>
+  <app-navbar></app-navbar>
   <div style="width: 50%; height: 40px; align-items: center; position: fixed; margin-left: 25%">
     <app-message-box style="width: 500px; height: 40px"></app-message-box>
   </div>
@@ -9,7 +9,7 @@
   <div style="margin-left: 20px; margin-top: 20px">
     <ng-container [ngSwitch]="componentService.page">
       <app-todo-list *ngSwitchCase="Page.LIST"></app-todo-list>
-      <app-new-todo *ngSwitchCase="Page.NEW"></app-new-todo>
+      <app-form *ngSwitchCase="Page.NEW"></app-form>
       <app-setting-page *ngSwitchCase="Page.SETTINGS"></app-setting-page>
     </ng-container>
   </div>

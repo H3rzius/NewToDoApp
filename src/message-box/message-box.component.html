@@ -1,3 +1,6 @@
-<div *ngIf="dataTableService.messageBoxMessage !== undefined" style="background-color: #ff353555; color: white; user-select: none; border: #ff3535 3px solid; text-align: center; border-radius: 15px;">
+<div *ngIf="dataTableService.messageBoxType === 0" class="alert alert-success text-center" role="alert">
+  {{dataTableService.messageBoxMessage!}}
+</div>
+<div *ngIf="dataTableService.messageBoxType === 1" class="alert alert-danger text-center" role="alert">
   {{dataTableService.messageBoxMessage!}}
 </div>

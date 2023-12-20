@@ -6,13 +6,13 @@ import {FormsModule} from "@angular/forms";
 import {dateTimestampProvider} from "rxjs/internal/scheduler/dateTimestampProvider";
 
 @Component({
-  selector: 'app-nav-bar',
+  selector: 'app-navbar',
   standalone: true,
   imports: [
     FormsModule
   ],
-  templateUrl: './nav-bar.component.html',
-  styleUrl: './nav-bar.component.css'
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.css'
 })
 export class NavBarComponent {
 

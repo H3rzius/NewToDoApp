@@ -2,7 +2,7 @@
 
   <div class="">
 
-    <div style="float: right">
+    <div style="float: right; margin-left: 10px">
       <div class="input-group mb-3" style="padding-right: 40px">
         <button class="btn btn-outline-secondary">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -12,7 +12,28 @@
         <input class="form-control" [(ngModel)]="dataTableService.searchText" >
       </div>
     </div>
-    <p class="h2">ToDo-List</p>
+
+    <p class="h2">
+      <!--<button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+          <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+        </svg>
+         Kategorien
+      </button>-->
+      ToDo-List
+    </p>
+
+    <!--<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Kategorien-Filter</h5>
+        <button type="button" class="btn-close white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <hr/>
+        <app-category-list></app-category-list>
+      </div>
+    </div>-->
+
     <div style="margin-top: 15px">
       <table class="todo-table">
         <thead>
@@ -52,11 +73,17 @@
               </td>
 
               <td>
-                <select class="form-select" style="background-color: transparent; border: none; box-shadow: none" [(ngModel)]="todo.priority" (ngModelChange)="dataTableService.save()">
-                  <option [ngValue]="Priority.UNASSIGNED" style="background-color: #222222; border: none">{{Priority.UNASSIGNED.button}}</option>
-                  <option [ngValue]="Priority.LOW" style="background-color: #222222; border: none">{{Priority.LOW.button}}</option>
-                  <option [ngValue]="Priority.HIGH" style="background-color: #222222; border: none">{{Priority.HIGH.button}}</option>
-                </select>
+                <ngx-select-dropdown class="form-select" style="background-color: transparent; border: none; box-shadow: none" [(ngModel)]="todo.priority" (ngModelChange)="dataTableService.save()">
+                  <option [ngValue]="Priority.UNASSIGNED" style="border: none">
+
+                  </option>
+                  <option [ngValue]="Priority.LOW" style="border: none">
+
+                  </option>
+                  <option [ngValue]="Priority.HIGH" style="border: none">
+
+                  </option>
+                </ngx-select-dropdown>
               </td>
 
               <td style="user-select: none">{{todo.id}}</td>

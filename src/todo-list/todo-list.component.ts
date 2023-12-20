@@ -2,8 +2,9 @@ import {Component} from '@angular/core';
 import {DataTableService} from "../services/DataTableService";
 import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {FormsModule} from "@angular/forms";
-import {CategoryListComponent} from "../category-list/category-list.component";
 import {Priority, Status, Todo} from "../models/todo";
+import {CategoryListComponent} from "../category-list/category-list.component";
+import {SelectDropDownModule} from "ngx-select-dropdown";
 
 @Component({
   selector: 'app-todo-list',
@@ -13,7 +14,8 @@ import {Priority, Status, Todo} from "../models/todo";
     NgIf,
     FormsModule,
     DatePipe,
-    CategoryListComponent
+    CategoryListComponent,
+    SelectDropDownModule
   ],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css'
