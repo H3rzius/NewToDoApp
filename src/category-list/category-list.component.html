@@ -1,0 +1,30 @@
+<div style="width: 300px; font-size: 18px; float: left; margin-top: 30px">
+  <div style="margin: 8px; color: #888888; direction: rtl">
+    <div style="" (click)="dataTableService.selected = undefined">
+      <b *ngIf="dataTableService.selected === undefined; else elseBlock">
+        Alle
+      </b>
+      <ng-template #elseBlock>
+        Alle
+      </ng-template>
+    </div>
+    <div style="margin-top: 8px" *ngFor="let category of dataTableService.categories">
+      <div name="cate" (click)="dataTableService.selected = category">
+        <b *ngIf="dataTableService.selected == category; else elseBlock">
+          {{category.name}}
+        </b>
+        <ng-template #elseBlock>
+          {{category.name}}
+        </ng-template>
+      </div>
+    </div>
+    <div class="input-group">
+      <button class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Neue Kategorie hinzufügen">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+        </svg>
+      </button>
+      <input class="form-control" style="background-color: transparent; color: #888888" [(ngModel)]="dataTableService.catName" (keyup.enter)="dataTableService.addCategory()">
+    </div>
+  </div>
+</div>

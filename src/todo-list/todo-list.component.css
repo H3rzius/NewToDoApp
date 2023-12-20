@@ -1,0 +1,31 @@
+.thead {
+  user-select: none;
+}
+
+.head-row {
+  background-color: #fff;
+  color: black;
+}
+
+.todo-table {
+  width: 1390px;
+}
+
+.rows {
+  background-color: #fff;
+  transition: 0.5s;
+  height: 40px;
+  border: #333333 1px solid;
+  font: 18px Arial bold;
+}
+
+.rows:nth-child(odd) {
+  background-color: #fff;
+}
+
+.rows:hover {
+  background-color: #fff;
+  transition: 0.5s;
+  color: #111;
+  border: #ccc 1px solid;
+}
