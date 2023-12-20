@@ -60,10 +60,10 @@ export class DataTableService {
     let todo = new Todo(t.id, t.name, t.until, c!);
     switch (t.priority.id) {
       case 1:
-        todo.priority = Priority.LOW;
+        todo.priority = Priority.HIGH;
         break;
       case 2:
-        todo.priority = Priority.HIGH;
+        todo.priority = Priority.URGENT;
         break;
       default:
         todo.priority = Priority.UNASSIGNED;

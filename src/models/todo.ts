@@ -39,18 +39,15 @@ export const Status = {
 export const Priority = {
   UNASSIGNED: {
     id: 0,
-    button: "dangerous",
-    tooltip: "Keine Priorität"
-  },
-  LOW: {
-    id: 1,
-    button: "low_priority",
-    tooltip: "Niedrige Priorität"
+    tooltip: "Normal"
   },
   HIGH: {
+    id: 1,
+    tooltip: "Höhe Priorität"
+  },
+  URGENT: {
     id: 2,
-    button: "priority_high",
-    tooltip: "Hohe Priorität"
+    tooltip: "Dringend"
   }
 }
 

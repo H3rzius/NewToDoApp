@@ -3,17 +3,45 @@
     <div class="brand-logo"><a (click)="componentService.page = Page.LIST">TodoApp</a></div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav" style="height: 32px">
-        <li class="nav-item">
-          <a class="nav-link" style="user-select: none" (click)="componentService.page = Page.LIST">Liste</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" style="user-select: none" (click)="componentService.page = Page.NEW">Neues Todo anlegen</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" style="user-select: none" (click)="componentService.page = Page.SETTINGS">Einstellungen</a>
-        </li>
-      </ul>
+      <ng-container *ngIf="this.componentService.page == Page.LIST">
+        <ul class="navbar-nav" style="height: 32px">
+          <li class="nav-item">
+            <a class="nav-link" style="user-select: none" (click)="componentService.page = Page.LIST"><b>Liste</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="user-select: none" (click)="componentService.page = Page.NEW">Neues Todo anlegen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="user-select: none" (click)="componentService.page = Page.SETTINGS">Einstellungen</a>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-container *ngIf="this.componentService.page == Page.NEW">
+        <ul class="navbar-nav" style="height: 32px">
+          <li class="nav-item">
+            <a class="nav-link" style="user-select: none" (click)="componentService.page = Page.LIST">Liste</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="user-select: none" (click)="componentService.page = Page.NEW"><b>Neues Todo anlegen</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="user-select: none" (click)="componentService.page = Page.SETTINGS">Einstellungen</a>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-container *ngIf="this.componentService.page == Page.SETTINGS">
+        <ul class="navbar-nav" style="height: 32px">
+          <li class="nav-item">
+            <a class="nav-link" style="user-select: none" (click)="componentService.page = Page.LIST">Liste</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="user-select: none" (click)="componentService.page = Page.NEW">Neues Todo anlegen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="user-select: none" (click)="componentService.page = Page.SETTINGS"><b>Einstellungen</b></a>
+          </li>
+        </ul>
+      </ng-container>
     </div>
     <!--<div style="float: right">
       <div>
